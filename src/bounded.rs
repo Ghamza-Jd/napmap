@@ -17,6 +17,14 @@ where
     bound: usize,
 }
 
+pub fn napmap<K, V>(buffer: usize) -> NapMap<K, V>
+where
+    K: Eq + Hash + Clone + Debug,
+    V: Clone + Debug,
+{
+    NapMap::new(buffer)
+}
+
 impl<K, V> NapMap<K, V>
 where
     K: Eq + Hash + Clone + Debug,

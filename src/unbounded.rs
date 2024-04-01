@@ -15,6 +15,19 @@ where
     notifiers: Arc<AsyncMutex<HashMap<K, Arc<Notify>>>>,
 }
 
+/// Creates an unbounded napmap for communicating between asynchronous tasks.
+///
+/// **Note** that the amount of available system memory is an implicit bound to
+/// the map. Using an `unbounded` map has the ability of causing the
+/// process to run out of memory. In this case, the process will be aborted.
+pub fn unbounded<K, V>() -> UnboundedNapMap<K, V>
+where
+    K: Eq + Hash + Clone + Debug,
+    V: Clone + Debug,
+{
+    UnboundedNapMap::new()
+}
+
 impl<K, V> UnboundedNapMap<K, V>
 where
     K: Eq + Hash + Clone + Debug,
