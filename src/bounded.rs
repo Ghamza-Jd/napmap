@@ -86,6 +86,19 @@ where
     }
 }
 
+impl<K, V> Debug for NapMap<K, V>
+where
+    K: Eq + Hash + Clone + Debug,
+    V: Clone + Debug,
+{
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        f.debug_struct("NapMap")
+            .field("map", &self.map)
+            .field("notifiers", &self.notifiers)
+            .finish()
+    }
+}
+
 #[cfg(test)]
 mod tests {
     use super::NapMap;
