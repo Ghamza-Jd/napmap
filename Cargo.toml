@@ -1,6 +1,6 @@
 [package]
 name = "napmap"
-version = "0.1.1"
+version = "0.1.2"
 authors = ["Hamza Jadid"]
 description = "Async HashMap that halts requester tasks until the requested data is accessible"
 readme = "./README.md"
